@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-# digital-garden
-Digital Garden: Knowledge Base
-=======
-# Digital Garden
+# Digital Garden: Knowledge Base
 
 ## Section Descriptions
 
@@ -43,10 +39,3 @@ Digital Garden: Knowledge Base
 | [05-composition-architectural](./design-patterns/05-composition-architectural/) | Composition-first thinking, layered/clean/hexagonal architecture |
 | [06-frontend-cross-layer](./design-patterns/06-frontend-cross-layer/) | Frontend patterns, shared contracts, cross-layer integration |
 | [07-decisions-testing-production](./design-patterns/07-decisions-testing-production/) | Pattern comparison, testing tactics, anti-patterns, production heuristics |
-
-## How to Use This Knowledge Base
-
-1. Start with a section `README` to get the conceptual map.
-2. Move to numbered files for deep dives from fundamentals to real-world decisions.
-3. Use comparison and risk chapters before implementation choices.
->>>>>>> 1fb1960 (Initial commit for digital garden knowledge base.)
