@@ -210,6 +210,7 @@ Run: `deepeval test run test_rag.py`
 
 ### GitHub Actions Workflow
 
+{% raw %}
 ```yaml
 name: LLM Regression Test
 on: [push, pull_request]
@@ -224,6 +225,7 @@ jobs:
       - run: deepeval test run test_rag.py
         env: { OPENAI_API_KEY: "${{ secrets.OPENAI_API_KEY }}" }
 ```
+{% endraw %}
 
 ---
 

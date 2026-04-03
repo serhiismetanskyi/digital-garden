@@ -67,6 +67,7 @@ steps:
 **Speed:** 5–10 minutes.
 **Rule:** tests run against the deployed service, not mocks.
 
+{% raw %}
 ```yaml
 - name: API tests
   run: uv run pytest -m api -n auto --timeout=60
@@ -75,6 +76,7 @@ steps:
     TEST_BASE_URL: ${{ vars.STAGING_URL }}
     TEST_API_TOKEN: ${{ secrets.STAGING_API_TOKEN }}
 ```
+{% endraw %}
 
 ---
 
@@ -125,6 +127,7 @@ test:
 
 For large suites, shard tests across workers:
 
+{% raw %}
 ```yaml
 test:
   strategy:
@@ -136,6 +139,7 @@ test:
           --shard-id=${{ matrix.shard }} \
           --num-shards=4
 ```
+{% endraw %}
 
 ---
 
@@ -150,6 +154,7 @@ Run different test subsets depending on trigger:
 | Before production deploy | + E2E smoke |
 | Nightly schedule | Full regression including slow tests |
 
+{% raw %}
 ```yaml
 - name: Run tests
   run: |
@@ -159,3 +164,4 @@ Run different test subsets depending on trigger:
       uv run pytest -m "not slow" -n auto
     fi
 ```
+{% endraw %}

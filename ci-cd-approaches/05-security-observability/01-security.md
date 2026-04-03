@@ -27,6 +27,7 @@ Never store secrets in CI/CD YAML files. Use a secret store.
 | GCP Secret Manager | GCP | GCP-native workloads |
 | Kubernetes Secrets | K8s | Pod-level secret injection |
 
+{% raw %}
 ```yaml
 # GitHub Secrets — injected as env vars, never printed in logs
 - name: Deploy
@@ -35,6 +36,7 @@ Never store secrets in CI/CD YAML files. Use a secret store.
     DB_URL: ${{ secrets.PROD_DB_URL }}
     JWT_SECRET: ${{ secrets.JWT_SECRET }}
 ```
+{% endraw %}
 
 GitHub masks secret values in logs automatically.
 
@@ -106,6 +108,7 @@ SAST analyses source code for security anti-patterns without running it.
 
 Docker images contain OS packages with their own CVEs.
 
+{% raw %}
 ```yaml
 - name: Scan image with Trivy
   uses: aquasecurity/trivy-action@master
@@ -121,6 +124,7 @@ Docker images contain OS packages with their own CVEs.
   with:
     sarif_file: trivy-results.sarif
 ```
+{% endraw %}
 
 Scan on every image push. Results appear in GitHub's Security tab.
 
@@ -130,6 +134,7 @@ Scan on every image push. Results appear in GitHub's Security tab.
 
 Verify that the code that built the artifact is the code that was reviewed.
 
+{% raw %}
 ```yaml
 # Sign Docker images with Cosign (SLSA compliance)
 - name: Sign image
@@ -142,6 +147,7 @@ Verify that the code that built the artifact is the code that was reviewed.
   env:
     COSIGN_EXPERIMENTAL: 1
 ```
+{% endraw %}
 
 Consumers verify the signature before deploying:
 ```bash

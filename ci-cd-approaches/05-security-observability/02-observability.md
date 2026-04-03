@@ -48,6 +48,7 @@ Track these per pipeline run and trend over time:
 
 ### Collecting Metrics
 
+{% raw %}
 ```yaml
 - name: Record pipeline metrics
   if: always()
@@ -58,6 +59,7 @@ Track these per pipeline run and trend over time:
       --branch=${{ github.ref_name }} \
       --run-id=${{ github.run_id }}
 ```
+{% endraw %}
 
 Push to Datadog, Prometheus Pushgateway, or a simple JSON file in S3.
 
@@ -91,6 +93,7 @@ Fail → automatic rollback trigger
       --max-p95-ms 300
 ```
 
+{% raw %}
 ```python
 # scripts/check_deployment_health.py
 import time
@@ -119,6 +122,7 @@ def check_health(
         time.sleep(30)
     return True
 ```
+{% endraw %}
 
 ---
 
@@ -162,6 +166,7 @@ Not every event needs a notification. Noise kills attention.
 | Nightly regression failure | Slack #qa-alerts | QA |
 | SLO breach after deploy | PagerDuty | On-call |
 
+{% raw %}
 ```yaml
 - name: Notify on failure
   if: failure()
@@ -177,3 +182,4 @@ Not every event needs a notification. Noise kills attention.
   env:
     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
 ```
+{% endraw %}

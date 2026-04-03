@@ -54,12 +54,14 @@ docker compose exec api ping db                   # Test connectivity
 
 ## Network Commands
 
+{% raw %}
 ```bash
 docker network ls                                    # List networks
 docker network inspect mynet                         # Details (connected containers, subnet)
 docker network inspect mynet --format '{{range .Containers}}{{.Name}} {{.IPv4Address}}{{"\n"}}{{end}}'
 docker network prune                                 # Remove unused networks
 ```
+{% endraw %}
 
 ## Exposing Ports
 

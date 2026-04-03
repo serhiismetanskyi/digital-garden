@@ -49,6 +49,7 @@ def test_api_returns_json():
     assert isinstance(response.json(), (list, dict))
 ```
 
+{% raw %}
 ```yaml
 # In deploy pipeline
 - name: Smoke tests
@@ -57,6 +58,7 @@ def test_api_returns_json():
   env:
     SMOKE_BASE_URL: ${{ vars.PRODUCTION_URL }}
 ```
+{% endraw %}
 
 Smoke test failure → automatic rollback trigger.
 
@@ -67,6 +69,7 @@ Smoke test failure → automatic rollback trigger.
 Continuously run test scenarios against production on a schedule.
 Not after deploys only — 24/7, every 1–5 minutes.
 
+{% raw %}
 ```yaml
 # GitHub Actions — scheduled synthetic monitor
 name: Synthetic Monitoring
@@ -96,6 +99,7 @@ jobs:
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.ONCALL_WEBHOOK }}
 ```
+{% endraw %}
 
 Synthetic monitoring catches:
 - External dependencies that went down

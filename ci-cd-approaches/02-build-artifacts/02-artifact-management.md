@@ -52,6 +52,7 @@ Pre-release and build metadata:
 | Branch + build number | `main-142` | Short-lived branch artifacts |
 | Date-based | `2026.03.30.1` | Services with continuous deploy |
 
+{% raw %}
 ```yaml
 # Generate version tag from git
 - name: Set version
@@ -62,11 +63,13 @@ Pre-release and build metadata:
     docker build -t ghcr.io/org/api:${{ env.VERSION }} .
     docker push ghcr.io/org/api:${{ env.VERSION }}
 ```
+{% endraw %}
 
 ---
 
 ## Container Registry
 
+{% raw %}
 ```yaml
 # Login and push to GitHub Container Registry
 - name: Log in to registry
@@ -84,6 +87,7 @@ Pre-release and build metadata:
       ghcr.io/${{ github.repository }}:${{ github.sha }}
       ghcr.io/${{ github.repository }}:latest
 ```
+{% endraw %}
 
 ### Image Tagging Strategy
 
@@ -109,6 +113,7 @@ Store artifacts long enough for rollback, not forever.
 | Tagged releases | 1 year |
 | Production releases | Indefinitely |
 
+{% raw %}
 ```yaml
 # GitHub Actions artifact upload with retention
 - uses: actions/upload-artifact@v4
@@ -117,6 +122,7 @@ Store artifacts long enough for rollback, not forever.
     path: dist/
     retention-days: 30
 ```
+{% endraw %}
 
 ---
 

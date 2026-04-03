@@ -46,6 +46,7 @@ No direct synchronous calls for non-critical flows.
 A relay process reads the outbox and publishes to the broker.
 Prevents lost events if the service crashes after DB write but before publish.
 
+{% raw %}
 ```python
 def place_order(order_id: str, amount: float, db) -> None:
     # Both writes are in one DB transaction — atomic
@@ -60,6 +61,7 @@ def place_order(order_id: str, amount: float, db) -> None:
     db.commit()
     # Separate relay process reads outbox and publishes to Kafka
 ```
+{% endraw %}
 
 **Idempotency:** consumers must handle duplicate events safely.
 Store processed event IDs and skip already-processed ones.

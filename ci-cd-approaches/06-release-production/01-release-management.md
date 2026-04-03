@@ -44,6 +44,7 @@ fix: correct email validation → PATCH bump
 feat!: redesign auth API    → MAJOR bump (! = breaking)
 ```
 
+{% raw %}
 ```yaml
 # GitHub Actions — automated release
 - name: Semantic Release
@@ -51,11 +52,13 @@ feat!: redesign auth API    → MAJOR bump (! = breaking)
   env:
     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
+{% endraw %}
 
 Output: creates git tag, GitHub Release, generates CHANGELOG.md.
 
 ### Git Tag-Based Release
 
+{% raw %}
 ```yaml
 on:
   push:
@@ -73,6 +76,7 @@ jobs:
           docker build -t ghcr.io/org/api:${{ env.VERSION }} .
           docker push ghcr.io/org/api:${{ env.VERSION }}
 ```
+{% endraw %}
 
 ---
 
@@ -114,6 +118,7 @@ Drawbacks:
 
 Changelog documents what changed in each release.
 
+{% raw %}
 ```yaml
 # Using git-cliff to generate CHANGELOG.md
 - name: Generate CHANGELOG
@@ -132,11 +137,13 @@ Changelog documents what changed in each release.
     git commit -m "chore: update CHANGELOG for ${{ github.ref_name }}"
     git push
 ```
+{% endraw %}
 
 ---
 
 ## GitHub Release
 
+{% raw %}
 ```yaml
 - name: Create GitHub Release
   uses: softprops/action-gh-release@v2
@@ -150,3 +157,4 @@ Changelog documents what changed in each release.
     draft: false
     prerelease: ${{ contains(env.VERSION, '-') }}
 ```
+{% endraw %}

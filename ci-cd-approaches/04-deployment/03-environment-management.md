@@ -76,6 +76,7 @@ Secrets are never in code, never in config files that are committed.
 | Kubernetes Secrets | Credentials injected into pods |
 | `.env` (gitignored) | Local developer environment only |
 
+{% raw %}
 ```yaml
 # GitHub Actions — secrets injected as env vars
 - name: Deploy
@@ -84,6 +85,7 @@ Secrets are never in code, never in config files that are committed.
     DB_PASSWORD: ${{ secrets.PROD_DB_PASSWORD }}
     API_KEY: ${{ secrets.PROD_API_KEY }}
 ```
+{% endraw %}
 
 ### What Never to Commit
 
@@ -99,6 +101,7 @@ secrets/
 
 Use `git-secrets` or `detect-secrets` as a pre-commit hook and CI check:
 
+{% raw %}
 ```yaml
 - name: Check for secrets
   uses: trufflesecurity/trufflehog@main
@@ -107,6 +110,7 @@ Use `git-secrets` or `detect-secrets` as a pre-commit hook and CI check:
     base: ${{ github.event.repository.default_branch }}
     head: HEAD
 ```
+{% endraw %}
 
 ---
 

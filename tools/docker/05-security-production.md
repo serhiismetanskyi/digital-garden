@@ -135,6 +135,7 @@ services:
 
 ## Logging in Production
 
+{% raw %}
 ```yaml
 services:
   api:
@@ -145,6 +146,7 @@ services:
         max-file: "5"
         tag: "{{.Name}}"
 ```
+{% endraw %}
 
 Without `max-size`, logs grow unbounded and fill disk.
 

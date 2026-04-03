@@ -52,6 +52,7 @@ jobs:
 
 Split test suite across multiple parallel runners:
 
+{% raw %}
 ```yaml
 strategy:
   matrix:
@@ -64,6 +65,7 @@ steps:
         --num-shards=4 \
         -n auto
 ```
+{% endraw %}
 
 4 runners × 4 workers each = 16× parallelism for the test stage.
 
@@ -73,6 +75,7 @@ steps:
 
 ### Dependency Cache
 
+{% raw %}
 ```yaml
 - uses: actions/cache@v4
   with:
@@ -80,6 +83,7 @@ steps:
     key: uv-${{ runner.os }}-${{ hashFiles('uv.lock') }}
     restore-keys: uv-${{ runner.os }}-
 ```
+{% endraw %}
 
 Impact: `uv sync` goes from 60s → 2s on cache hit.
 
@@ -97,12 +101,14 @@ Full rebuild: 90s. Cache hit (code change only): 15s.
 
 ### Build Output Cache
 
+{% raw %}
 ```yaml
 - uses: actions/cache@v4
   with:
     path: .mypy_cache
     key: mypy-${{ hashFiles('src/**/*.py') }}
 ```
+{% endraw %}
 
 Mypy caches type check results. Re-checking unchanged files: milliseconds.
 
@@ -154,6 +160,7 @@ on:
 
 ## Pipeline Metrics to Track
 
+{% raw %}
 ```yaml
 - name: Annotate with timing
   if: always()
@@ -161,6 +168,7 @@ on:
     echo "Stage completed in ${{ steps.tests.outputs.duration }}s"
     echo "Cache hit: ${{ steps.cache.outputs.cache-hit }}"
 ```
+{% endraw %}
 
 Run a weekly review: which stage is slowest? What is its trend?
 A stage that grew from 2min → 8min over three months needs attention.

@@ -39,6 +39,7 @@ Each stage gates the next. Linting failures block all test stages.
 
 ## GitHub Actions Example
 
+{% raw %}
 ```yaml
 name: Test Suite
 
@@ -108,6 +109,7 @@ jobs:
           name: e2e-results
           path: test-results/
 ```
+{% endraw %}
 
 ---
 
@@ -164,6 +166,7 @@ repos:
 
 ## Nightly Full Suite
 
+{% raw %}
 ```yaml
 name: Nightly Full Regression
 
@@ -191,3 +194,4 @@ jobs:
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
 ```
+{% endraw %}

@@ -77,6 +77,7 @@ kubectl argo rollouts abort api-service
 kubectl argo rollouts set weight api-service 0
 ```
 
+{% raw %}
 ```yaml
 # GitHub Actions — rollback job triggered by monitoring alert
 rollback:
@@ -89,6 +90,7 @@ rollback:
         curl -X POST ${{ secrets.SLACK_WEBHOOK }} \
           -d '{"text":"Rollback triggered for ${{ env.SERVICE }}"}'
 ```
+{% endraw %}
 
 ---
 

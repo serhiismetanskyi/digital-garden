@@ -138,6 +138,7 @@ IaC principles:
 
 ### CloudFormation (AWS)
 
+{% raw %}
 ```yaml
 Resources:
   ApiDatabase:
@@ -150,6 +151,7 @@ Resources:
       MasterUserPassword: !Sub "{{resolve:secretsmanager:db-credentials:password}}"
       MultiAZ: !If [IsProd, true, false]
 ```
+{% endraw %}
 
 ---
 

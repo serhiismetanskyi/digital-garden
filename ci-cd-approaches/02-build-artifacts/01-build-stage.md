@@ -15,6 +15,7 @@ Same code + same dependencies = same output. Always.
 
 Install all project dependencies. Cache aggressively — this is the slowest step.
 
+{% raw %}
 ```yaml
 # GitHub Actions — Python with uv
 - uses: actions/cache@v4
@@ -24,6 +25,7 @@ Install all project dependencies. Cache aggressively — this is the slowest ste
 
 - run: uv sync --frozen
 ```
+{% endraw %}
 
 `--frozen` ensures the exact lockfile is used. No silent upgrades in CI.
 
@@ -62,6 +64,7 @@ Caching dependencies is the single most effective build optimisation.
 | Docker layer cache | Layer hash |
 | Go modules | `hash(go.sum)` |
 
+{% raw %}
 ```yaml
 - uses: actions/cache@v4
   with:
@@ -72,6 +75,7 @@ Caching dependencies is the single most effective build optimisation.
     restore-keys: |
       deps-${{ runner.os }}-
 ```
+{% endraw %}
 
 `restore-keys` provides a fallback: if the exact key misses, use the most recent partial match.
 
@@ -98,6 +102,7 @@ For Docker:
 
 ## Docker Build in CI
 
+{% raw %}
 ```yaml
 - name: Build Docker image
   uses: docker/build-push-action@v5
@@ -110,6 +115,7 @@ For Docker:
     cache-from: type=gha
     cache-to: type=gha,mode=max
 ```
+{% endraw %}
 
 `type=gha` uses GitHub Actions cache for Docker layers. Typically cuts build time by 60–80%.
 

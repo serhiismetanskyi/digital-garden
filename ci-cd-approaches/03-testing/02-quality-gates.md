@@ -58,6 +58,7 @@ The pipeline stops. The developer either adds tests or explains why coverage dro
 
 Track coverage delta per PR to catch gradual erosion:
 
+{% raw %}
 ```yaml
 - name: Coverage comment on PR
   uses: py-cov-action/python-coverage-comment-action@v3
@@ -66,6 +67,7 @@ Track coverage delta per PR to catch gradual erosion:
     MINIMUM_GREEN: 90
     MINIMUM_ORANGE: 80
 ```
+{% endraw %}
 
 ---
 
@@ -97,6 +99,7 @@ def assert_slo(environment: Environment, **kwargs) -> None:
         environment.process_exit_code = 1
 ```
 
+{% raw %}
 ```yaml
 - name: Load test with SLO gate
   run: |
@@ -104,6 +107,7 @@ def assert_slo(environment: Environment, **kwargs) -> None:
       --headless -u 50 -r 5 --run-time 60s \
       --host ${{ vars.STAGING_URL }}
 ```
+{% endraw %}
 
 ---
 
@@ -118,6 +122,7 @@ Block deployment if critical CVEs found in dependencies:
 
 Or with Trivy for Docker images:
 
+{% raw %}
 ```yaml
 - name: Scan Docker image
   uses: aquasecurity/trivy-action@master
@@ -126,6 +131,7 @@ Or with Trivy for Docker images:
     exit-code: '1'
     severity: 'CRITICAL,HIGH'
 ```
+{% endraw %}
 
 ---
 

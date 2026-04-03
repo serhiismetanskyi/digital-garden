@@ -2,6 +2,7 @@
 
 ## Image Commands
 
+{% raw %}
 ```bash
 docker build -t myapp:1.0 .                          # Build from Dockerfile in current dir
 docker build -f Dockerfile.prod -t myapp:prod .       # Build from specific Dockerfile
@@ -20,9 +21,11 @@ docker history myapp:1.0                              # Layer-by-layer build his
 docker image prune                                    # Remove dangling images
 docker image prune -a                                 # Remove all unused images
 ```
+{% endraw %}
 
 ## Container Lifecycle
 
+{% raw %}
 ```bash
 docker run -d --name web -p 8080:80 nginx:alpine      # Detached, named, port-mapped
 docker run -it --rm ubuntu:24.04 /bin/bash             # Interactive, auto-remove on exit
@@ -44,6 +47,7 @@ docker rm web                                          # Remove stopped containe
 docker rm -f web                                       # Force remove (even running)
 docker container prune                                 # Remove all stopped containers
 ```
+{% endraw %}
 
 ## Exec, Logs, Copy
 
@@ -64,6 +68,7 @@ docker cp ./config.yaml web:/app/config.yaml           # Copy to container
 
 ## Inspect & Stats
 
+{% raw %}
 ```bash
 docker inspect web                                     # Full container JSON metadata
 docker inspect --format '{{.State.Status}}' web        # Single field
@@ -77,6 +82,7 @@ docker top web                                         # Processes inside contai
 docker diff web                                        # Filesystem changes vs image
 docker port web                                        # Port mappings
 ```
+{% endraw %}
 
 ## System & Cleanup
 

@@ -80,6 +80,7 @@ locust -f tests/performance/locustfile.py \
 
 Split tests across multiple CI workers for speed:
 
+{% raw %}
 ```yaml
 # GitHub Actions matrix
 strategy:
@@ -91,6 +92,7 @@ strategy:
       --shard-id=${{ matrix.shard }} \
       --num-shards=4
 ```
+{% endraw %}
 
 ---
 

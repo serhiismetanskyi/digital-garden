@@ -43,6 +43,7 @@ Key differences from microservices:
 - Alembic migrations run as a pre-deploy step
 - Static assets served by CDN or whitenoise (Django)
 
+{% raw %}
 ```yaml
 # Deploy Python web app to Cloud Run
 - name: Deploy to Cloud Run
@@ -52,6 +53,7 @@ Key differences from microservices:
     image: ${{ env.IMAGE }}
     region: us-central1
 ```
+{% endraw %}
 
 ---
 

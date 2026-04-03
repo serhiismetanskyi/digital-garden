@@ -37,6 +37,7 @@ The key question before retrying: **is this a real failure?** Retrying a real fa
 
 ### Retry Only Known-Transient Steps
 
+{% raw %}
 ```yaml
 - name: Wait for service to be ready
   run: |
@@ -51,6 +52,7 @@ The key question before retrying: **is this a real failure?** Retrying a real fa
     echo "Service failed to become ready"
     exit 1
 ```
+{% endraw %}
 
 Do not retry: lint failures, type errors, test failures.
 Do retry: network timeouts, service startup waits, DNS resolution.
@@ -108,6 +110,7 @@ All results collected, all failures surfaced, not just the first.
 
 ### Allowed Failures
 
+{% raw %}
 ```yaml
 strategy:
   matrix:
@@ -120,6 +123,7 @@ steps:
   - name: Run tests
     continue-on-error: ${{ matrix.experimental }}
 ```
+{% endraw %}
 
 Python 3.13 failure does not block the pipeline — it is experimental.
 
@@ -127,6 +131,7 @@ Python 3.13 failure does not block the pipeline — it is experimental.
 
 ## Failure Notification Strategy
 
+{% raw %}
 ```yaml
 - name: Notify team on failure
   if: failure() && github.ref == 'refs/heads/main'
@@ -147,6 +152,7 @@ Python 3.13 failure does not block the pipeline — it is experimental.
   env:
     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
 ```
+{% endraw %}
 
 Notify on:
 - `main` branch failures (team must act)

@@ -2,6 +2,7 @@
 
 ## Container Won't Start
 
+{% raw %}
 ```bash
 docker logs myapp                                # Check startup errors
 docker logs --tail 50 myapp                      # Last 50 lines
@@ -9,6 +10,7 @@ docker inspect myapp --format '{{.State.ExitCode}}'   # Exit code
 docker inspect myapp --format '{{.State.Error}}'       # Error message
 docker inspect myapp --format '{{json .State}}' | jq   # Full state
 ```
+{% endraw %}
 
 | Exit Code | Meaning |
 |-----------|---------|
@@ -20,11 +22,13 @@ docker inspect myapp --format '{{json .State}}' | jq   # Full state
 
 ### OOM Diagnosis
 
+{% raw %}
 ```bash
 docker inspect myapp --format '{{.State.OOMKilled}}'   # true = out of memory
 docker stats --no-stream myapp                          # Check memory usage
 # Fix: increase memory limit in compose deploy.resources.limits.memory
 ```
+{% endraw %}
 
 ## Network Debugging
 
@@ -40,6 +44,7 @@ docker compose exec api timeout 5 bash -c 'cat < /dev/tcp/db/5432'  # Alt port c
 
 ### Network Inspection
 
+{% raw %}
 ```bash
 docker network ls                                      # List networks
 docker network inspect mynet                           # Subnet, gateway, containers
@@ -51,6 +56,7 @@ docker network inspect mynet \
 # Check which networks a container belongs to
 docker inspect myapp --format '{{json .NetworkSettings.Networks}}' | jq
 ```
+{% endraw %}
 
 ### Netshoot Debug Container
 
@@ -83,6 +89,7 @@ docker compose logs -f --since 10m api db
 
 ### Log File Location
 
+{% raw %}
 ```bash
 # Find log file path
 docker inspect myapp --format '{{.LogPath}}'
@@ -93,6 +100,7 @@ ls -lh $(docker inspect myapp --format '{{.LogPath}}')
 # Truncate logs (emergency — stops log collection temporarily)
 truncate -s 0 $(docker inspect myapp --format '{{.LogPath}}')
 ```
+{% endraw %}
 
 ## Filesystem & Process Debugging
 
@@ -111,6 +119,7 @@ docker diff myapp                                      # Filesystem changes vs i
 
 ## Resource Issues
 
+{% raw %}
 ```bash
 docker stats                                           # Live CPU / memory / IO
 docker stats --no-stream --format \
@@ -125,9 +134,11 @@ docker image prune -a                                  # Remove unused images
 docker volume prune                                    # Remove unused volumes
 docker builder prune                                   # Clear build cache
 ```
+{% endraw %}
 
 ## Compose-Specific Debugging
 
+{% raw %}
 ```bash
 docker compose config                                  # Validate and show resolved YAML
 docker compose config --services                       # List service names
@@ -144,9 +155,11 @@ docker compose up -d --build api
 docker compose logs --tail 20 api
 docker inspect $(docker compose ps -q api) --format '{{.RestartCount}}'
 ```
+{% endraw %}
 
 ## Build & Health Debugging
 
+{% raw %}
 ```bash
 docker build --progress=plain -t myapp .               # Verbose build output
 docker build --target builder -t myapp:builder .       # Build specific stage
@@ -157,6 +170,7 @@ docker builder prune -a                                # Clear build cache
 docker inspect myapp --format '{{json .State.Health}}' | jq  # Health status
 docker exec myapp curl -f http://localhost:8000/health       # Manual check
 ```
+{% endraw %}
 
 ## Troubleshooting Decision Tree
 
