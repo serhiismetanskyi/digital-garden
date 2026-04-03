@@ -20,16 +20,15 @@ export const getUser = (id: string) => api.get<User>(`/users/${id}`);
 
 ### GraphQL queries
 
-- Apollo Client or TanStack Query with a GraphQL fetch function.
-- Normalized client cache: data stored by `__typename + id`. One update
-  propagates everywhere.
-- Optimistic updates: assume success, update UI immediately, roll back on error.
+- Use `gql` with `httpx` or Strawberry client for GraphQL calls.
+- Cache responses server-side (Redis) keyed by query hash.
+- Optimistic updates: assume success, update cache immediately, roll back on error.
 
 ### gRPC clients
 
 - Generated stubs from `.proto` files.
-- Used on mobile (Swift/Kotlin) and Node.js backends, not in browsers
-  (use grpc-web proxy).
+- Generated stubs from `.proto` files with `grpcio-tools`.
+- Used in Python backends, mobile (Swift/Kotlin), and via grpc-web proxy for browsers.
 
 ### WebSocket subscriptions
 
@@ -43,15 +42,16 @@ export const getUser = (id: string) => api.get<User>(`/users/${id}`);
 
 Separate server state from UI state:
 
-| Type             | What it is                       | Tools                         |
+| Type             | What it is                       | Tools (Python)                |
 | ---------------- | -------------------------------- | ----------------------------- |
-| Server state     | Data from API, cached locally    | TanStack Query, SWR, Apollo   |
-| UI state         | Modals, tabs, form inputs        | React state, Zustand, Redux   |
-| URL state        | Filters, pagination in URL       | Router query params           |
-| Persistent state | User prefs in localStorage       | localStorage, IndexedDB       |
+| Server state     | Data from API, cached on server  | Redis, `lru_cache`, `cachetools` |
+| Session state    | Per-user auth, preferences       | Signed cookies, Redis sessions |
+| URL state        | Filters, pagination in URL       | Query params parsed by Pydantic |
+| Persistent state | Long-lived user settings         | Database (PostgreSQL, SQLite) |
 
-Do not put API data in Redux/Zustand. Use a dedicated server-state library. It
-handles caching, revalidation, and background refresh automatically.
+Keep API responses in a cache layer (Redis / in-memory) with TTL-based
+invalidation. Do not query the database on every request when the data is
+read-heavy.
 
 ### Client cache
 
@@ -90,9 +90,9 @@ Group multiple related requests into one.
 
 | Layer                    | Scope           | Persistence      |
 | ------------------------ | --------------- | ---------------- |
-| In-memory (TanStack Q.)  | Current session | Lost on refresh  |
-| Service Worker cache     | Origin          | Across reloads   |
-| HTTP browser cache       | Per URL         | Per Cache-Control |
+| In-memory (`lru_cache`)  | Process lifetime| Lost on restart  |
+| Redis                    | Shared / cluster| Across restarts  |
+| HTTP cache (CDN / proxy) | Per URL         | Per Cache-Control |
 
 ### Debounce and throttle
 
@@ -101,20 +101,27 @@ Group multiple related requests into one.
 - **Throttle:** fire at most once per N ms. Use for scroll events and window
   resize.
 
-```ts
-// Debounce — fire only after user stops typing for 300ms
-const searchUsers = debounce((query: string) => {
-  queryClient.fetchQuery(["users", query], () => api.get(`/users?q=${query}`));
-}, 300);
+```python
+import asyncio
+from typing import Callable
+
+_debounce_tasks: dict[str, asyncio.Task[None]] = {}
+
+
+async def debounced_search(query: str, delay: float = 0.3) -> list[dict]:
+    """Cancel previous pending search and schedule a new one after delay."""
+    if "search" in _debounce_tasks:
+        _debounce_tasks["search"].cancel()
+    await asyncio.sleep(delay)
+    return await user_service.search(query)
 ```
 
 ---
 
 ## Key Rules
 
-1. Never call `fetch()` directly in a React component. Use a data layer.
-2. Do not store server data in Redux/Zustand — use a server-state library.
-3. Invalidate cache after mutations; do not manually update nested state trees.
-4. Debounce user-input-driven requests. Throttle event-driven ones.
-5. Keep the number of active WebSocket subscriptions minimal; unsubscribe on
-   component unmount.
+1. Never call the DB directly from a route handler. Use a service / repository layer.
+2. Do not store API data in global variables — use a cache with TTL (Redis, `cachetools`).
+3. Invalidate cache after mutations; do not manually patch nested data structures.
+4. Debounce user-input-driven search on the server. Throttle event-driven tasks.
+5. Keep the number of active WebSocket connections minimal; close on disconnect.

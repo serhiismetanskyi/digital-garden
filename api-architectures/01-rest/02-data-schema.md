@@ -140,7 +140,7 @@ Rules:
 - Never allow clients to set `id`, `created_at`, `updated_at`, `role`, or any internal field
 - Use `additionalProperties: false` to reject unexpected fields
 - Define separate schemas: `UserCreate`, `UserUpdate`, `UserResponse`
-- In frameworks like FastAPI or NestJS, this maps directly to separate DTOs/models
+- In frameworks like FastAPI or Django REST Framework, this maps directly to separate Pydantic models / serializers
 
 ### Schema Composition
 

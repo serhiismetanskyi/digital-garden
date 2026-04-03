@@ -7,12 +7,12 @@ Security is defense in depth. Multiple layers. No single layer is sufficient alo
 ### JWT (JSON Web Token)
 - Stateless. Server validates signature without DB lookup.
 - Short-lived access token (15 min) + long-lived refresh token (7 days).
-- **Store access token in memory** (JavaScript variable, not localStorage).
-  - Why: localStorage is readable by any script on the page — XSS attack can steal it.
+- **Store access token in memory** (not in cookies or persistent storage on the client).
+  - Why: persistent client storage is readable by any script on the page — XSS attack can steal it.
   - Tradeoff: in-memory token is lost on page refresh. Mitigate with a silent refresh
     before expiry using the HttpOnly refresh token cookie.
 - Store refresh token in HttpOnly, Secure, SameSite=Strict cookie.
-  - HttpOnly: JavaScript cannot read it — safe from XSS.
+  - HttpOnly: client-side scripts cannot read it — safe from XSS.
   - SameSite=Strict: not sent on cross-site requests — safe from CSRF.
 - Always verify: signature, expiration, algorithm (reject `"alg": "none"`).
 

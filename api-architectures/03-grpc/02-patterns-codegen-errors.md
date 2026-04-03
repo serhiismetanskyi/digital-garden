@@ -76,7 +76,7 @@ It generates two things:
 ### Language Interoperability
 
 The `.proto` file is language-neutral.
-Generate code for Python, Go, Java, C++, Rust, TypeScript, and more.
+Generate code for Python, Go, Rust, C++, and more.
 Services written in different languages communicate without issues.
 
 ### Python Example
