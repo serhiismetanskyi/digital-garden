@@ -15,7 +15,7 @@ Layout
 ```
 
 **Slot-based composition:** parent defines named blocks; children fill them.
-Used in Jinja2 (`{% block %}`), Django templates (`{% block %}`), and Python UI frameworks.
+Used in Jinja2 (`{% raw %}{% block %}{% endraw %}`), Django templates (`{% raw %}{% block %}{% endraw %}`), and Python UI frameworks.
 
 Why it matters: presentational components are pure — easy to test and reuse.
 Container components own data logic — easy to swap the view without

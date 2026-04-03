@@ -129,6 +129,6 @@ CLI (docker) ──REST API──► Docker Daemon (dockerd)
 
 | Task | Command |
 |------|---------|
-| Check container IP | `docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' X` |
+| Check container IP | `docker inspect -f '{% raw %}{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}{% endraw %}' X` |
 | Test connectivity | `docker run --rm --network=mynet nicolaka/netshoot curl http://svc:port` |
 | Container resource stats | `docker stats` |

@@ -17,7 +17,7 @@ The view is built from small, reusable templates. Each template owns its markup 
 1. **Partials** — `_button.html`, `_input.html`.
 2. **Components** — `_search_bar.html` (input + button).
 3. **Sections** — `_header.html` (logo + nav + search).
-4. **Layouts** — `base.html` skeleton with `{% block content %}`.
+4. **Layouts** — `base.html` skeleton with `{% raw %}{% block content %}{% endraw %}`.
 5. **Pages** — extend layout, fill blocks with real content.
 
 ## Controller / Template Split
