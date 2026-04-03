@@ -115,3 +115,26 @@
 |----------|--------|
 | [Docker Overview](./tools/docker/README.md) | Architecture, lifecycle, cheat sheet, when to containerize |
 | [Git Overview](./tools/git/README.md) | Object model, three-area workflow, cheat sheet |
+
+<!-- child-readmes:start -->
+## Child READMEs
+
+- [Agentic Ai Architecture](./agentic-ai-architecture/README.md)
+- [Api Architectures](./api-architectures/README.md)
+- [Ci Cd Approaches](./ci-cd-approaches/README.md)
+- [Client Server Architecture](./client-server-architecture/README.md)
+- [Databases](./databases/README.md)
+- [Libs](./libs/README.md)
+- [Llm Evaluation](./llm-evaluation/README.md)
+- [Owasp Api Security](./owasp-api-security/README.md)
+- [Owasp Llm Security](./owasp-llm-security/README.md)
+- [Performance Testing](./performance-testing/README.md)
+- [Qa Methodology](./qa-methodology/README.md)
+- [Software Design Patterns](./software-design-patterns/README.md)
+- [Test Automation Framework](./test-automation-framework/README.md)
+- [Test Design Patterns](./test-design-patterns/README.md)
+- [Test Design Techniques](./test-design-techniques/README.md)
+- [Testing Pyramid](./testing-pyramid/README.md)
+- [Tools](./tools/README.md)
+
+<!-- child-readmes:end -->

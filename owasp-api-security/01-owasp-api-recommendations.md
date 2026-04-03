@@ -163,30 +163,6 @@ Reference: **OWASP API Security Top 10 (2023)** · OWASP REST Security Cheat She
 - Every critical endpoint has at least one negative authorization test in CI.
 - Every release includes an API inventory diff and deprecation notes.
 
-## Plan Completeness Addendum
-
-### Fundamentals and Attack Surface
-- API security protects confidentiality, integrity, and availability across endpoints, parameters, auth, and business logic.
-- Model the full surface: path/query/body/header inputs, auth tokens, workflow steps, and third-party dependencies.
-
-### API Type-Specific Controls
-- **REST:** strict method allowlists, schema validation, and consistent status-code semantics.
-- **GraphQL:** disable public introspection when not needed, enforce depth/complexity limits, and cap batching.
-- **gRPC:** enforce TLS/mTLS, metadata-based auth, and method-level authorization in interceptors.
-- **WebSocket:** validate `Origin` to prevent CSWSH, authenticate during handshake, and enforce message limits.
-
-### Threat Modeling, Data, and Compliance
-- Run threat modeling for each major API change (assets, attack vectors, likelihood, impact, mitigations).
-- Enforce encryption in transit and at rest for sensitive API data.
-- Track dependency risk for libraries, SDKs, and third-party APIs with version pinning and scanning.
-- Align controls with GDPR/PII handling, retention, and deletion obligations.
-
-### Failure Modes, Anti-Patterns, and Defense-in-Depth
-- Treat auth bypass, data leakage, and resource exhaustion as primary API failure modes with runbooks.
-- Avoid anti-patterns: trusting client input, missing auth checks, and exposing internal/debug endpoints.
-- Keep layered controls: auth + validation + rate limiting + observability + incident response.
-- Engineering heuristics: never trust input, validate everything, least privilege, secure-by-default.
-
 ## OWASP Cheat Sheet Essentials
 
 - **OWASP API Top 10:** prioritize server-side authorization, inventory hygiene, and abuse controls as default API security baseline. <https://owasp.org/API-Security/editions/2023/en/0x11-t10/>

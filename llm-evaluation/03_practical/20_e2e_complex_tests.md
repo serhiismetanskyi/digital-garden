@@ -256,23 +256,6 @@ assert_test(rag_turn_2, [FaithfulnessMetric(threshold=0.7),
 
 ---
 
-## Scenario Coverage Checklist
-
-Before writing a complex test, map the scenario to components:
-
-```
-Scenario: User books a flight
-────────────────────────────────────────────
-✓ Knowledge retention  → bot remembers name + ref from earlier turns
-✓ RAG                  → policy docs attached to assistant turns
-✓ Tools                → search_flights + book_flight called correctly
-✓ Role adherence       → stays as travel assistant, no off-topic answers
-✓ Completeness         → full booking flow completed, ref number given
-✓ Goal accuracy        → expected_outcome matched
-```
-
----
-
 ## Good Bot vs Broken Bot Pattern
 
 A reliable test suite always covers both paths:

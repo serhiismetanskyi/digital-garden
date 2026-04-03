@@ -151,3 +151,10 @@ User request
 | [Queries & Performance](./postgresql/03-queries-performance.md) | EXPLAIN ANALYZE, indexing strategy, pagination, anti-patterns |
 | [Admin & Operations](./postgresql/04-admin-operations.md) | Users, backup, Docker setup, tuning, monitoring |
 | [Basic Query Commands](./postgresql/05-basic-query-commands.md) | SQL cheat sheet: CRUD, filters, joins, CTEs, window functions, transactions |
+
+<!-- child-readmes:start -->
+## Child READMEs
+
+- [Postgresql](./postgresql/README.md)
+
+<!-- child-readmes:end -->

@@ -39,23 +39,6 @@ Most defects cluster at edges, unexpected combinations, and state transitions â€
 | [Metamorphic Testing](./03-experience-based/02-metamorphic-testing.md) | MT | Check relationships between outputs when inputs change |
 | [Fuzz & Random Testing](./03-experience-based/03-fuzz-random-testing.md) | Fuzz | Send unexpected/random data to expose crashes and edge cases |
 
----
-
-## Coverage Check (Source Article)
-
-The source article includes 8 techniques, and all 8 are covered in this folder:
-
-1. Equivalence Partitioning
-2. Boundary Value Analysis
-3. Decision Table Testing
-4. State Transition Testing
-5. CRUD Testing
-6. Metamorphic Testing
-7. Pairwise Testing
-8. Random and Fuzz Testing
-
----
-
 ## Quick Selection Guide
 
 | Situation | Technique |

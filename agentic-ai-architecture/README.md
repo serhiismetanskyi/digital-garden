@@ -9,8 +9,6 @@ Unlike a classic prompt→response app, an agentic system:
 - Iterates through a sense → plan → act → observe loop
 - Manages both short-term and long-term memory
 
-> **Market:** ~$5B in 2024, projected ~$50B by 2030.
-
 ## Sections
 
 | File | Topics |
