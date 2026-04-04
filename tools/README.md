@@ -31,7 +31,8 @@ Hands-on command references, configuration patterns, and best practices for the 
 | Resource | Topics |
 |------|--------|
 | [Overview](./linux-terminal/README.md) | Essential Linux terminal commands for daily user tasks |
-| [Navigation & File Operations](./linux-terminal/01-navigation-files.md) | `pwd`, `ls`, `cd`, `mkdir`, `cp`, `mv`, `rm`, `cat`, `less` |
-| [Search & Text Processing](./linux-terminal/02-search-text-processing.md) | `find`, `grep`, `rg`, `sort`, `uniq`, `wc`, basic pipelines |
+| [Navigation & File Operations](./linux-terminal/01-navigation-files.md) | `pwd`, `ls`, `cd`, `mkdir`, `cp`, `mv`, `rm`, `cat`, `nano`, `sudo`, `chmod`, `tar` |
+| [Search & Text Processing](./linux-terminal/02-search-text-processing.md) | `find`, `grep`, `rg`, `sort`, `uniq`, `wc`, pipes, redirects |
 | [Processes & System Monitoring](./linux-terminal/03-processes-system-monitoring.md) | `ps`, `top`, `kill`, `systemctl`, `journalctl`, `free`, `df` |
-| [Network Basics](./linux-terminal/04-network-ssh-downloads.md) | `ip`, `ping`, `curl`, `wget`, `ssh`, `scp`, basic connectivity checks |
+| [Network Basics](./linux-terminal/04-network-ssh-downloads.md) | `ip`, `ss`, `ping`, `curl`, `wget`, `ssh`, `scp`, `netstat` (legacy) |
+| [Administration & Scripting](./linux-terminal/05-admin-scripting.md) | `apt`, user/group mgmt, `.bashrc`, bash scripting, `cal`, `date` |

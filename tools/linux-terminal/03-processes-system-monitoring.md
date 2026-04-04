@@ -61,6 +61,13 @@ journalctl -u nginx -f       # follow logs live
 journalctl -p err             # show only errors and above
 ```
 
+## Logged-in users
+
+```bash
+who                      # show who is logged in
+w                        # show logged-in users + their activity
+```
+
 ## Memory, disk, system
 
 ```bash
@@ -68,7 +75,11 @@ free -h                  # RAM usage (human-readable)
 df -h                    # disk usage by filesystem
 du -sh ./*               # size of each item in current dir
 du -sh /var/log          # size of specific directory
+lsblk                    # list block devices (disks/partitions)
 uptime                   # uptime + load average
 uname -a                 # kernel info
+hostname                 # show system hostname
+lscpu                    # CPU info (cores, model, cache)
+vmstat 1 5               # virtual memory stats (1s interval, 5 times)
 cat /etc/os-release      # distribution info
 ```

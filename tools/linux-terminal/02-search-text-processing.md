@@ -62,6 +62,8 @@ cmd1 || cmd2                     # run cmd2 only if cmd1 fails
 ```bash
 sed 's/http:/https:/g' urls.txt  # replace text (print to stdout)
 sed -i 's/old/new/g' config.yaml # replace text in-place
+awk '{print $1}' file.txt        # print first column (space-delimited)
+awk -F',' '{print $2}' data.csv  # print second column (comma-delimited)
 cut -d',' -f1,3 data.csv         # extract fields 1 and 3 by comma
 tr '[:upper:]' '[:lower:]' < f   # convert to lowercase
 ```

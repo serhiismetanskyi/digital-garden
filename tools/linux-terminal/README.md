@@ -6,10 +6,11 @@ Core Linux terminal commands for everyday use, plus basic networking and system 
 
 | File | Topics |
 |------|--------|
-| [01 — Navigation, Files & Shell Basics](./01-navigation-files.md) | `man`, bash shortcuts, `pwd`, `ls`, `cd`, `mkdir`, `cp`, `mv`, `rm`, `cat`, `less`, `chmod`, `tar`, env vars |
+| [01 — Navigation, Files & Shell Basics](./01-navigation-files.md) | `man`, `which`, `whatis`, bash shortcuts, `pwd`, `ls`, `cd`, `mkdir`, `cp`, `mv`, `rm`, `cat`, `less`, `nano`, `sudo`, `chmod`, `tar`, env vars |
 | [02 — Search, Pipes & Text Processing](./02-search-text-processing.md) | `find`, `locate`, `grep`, `rg`, pipes, redirects, `&&`/`||`, `sed`, `sort`, `uniq`, `wc` |
 | [03 — Processes & System Monitoring](./03-processes-system-monitoring.md) | `ps`, `top`, `kill`, `pkill`, `watch`, jobs, `systemctl`, `journalctl`, `free`, `df`, `du` |
-| [04 — Network Basics](./04-network-ssh-downloads.md) | `ip`, `ss`, `ping`, `curl`, `wget`, `ssh`, `scp`, troubleshooting checklist |
+| [04 — Network Basics](./04-network-ssh-downloads.md) | `ip`, `ss`, `ping`, `curl`, `wget`, `ssh`, `scp`, `netstat`/`ifconfig` (legacy) |
+| [05 — Administration & Scripting](./05-admin-scripting.md) | `apt`, user/group management, `.bashrc`, bash scripting basics, `cal`, `date`, `echo` |
 
 ## Quick Start
 

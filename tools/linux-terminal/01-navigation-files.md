@@ -6,6 +6,8 @@
 man ls                   # open manual page for ls
 man grep                 # open manual page for grep
 command --help           # short help for most commands
+which python3            # show full path of a command
+whatis ls                # one-line description from manual
 ```
 
 ## Basic system info
@@ -32,7 +34,10 @@ uptime                   # how long system is running + load
 | `Ctrl+K` | Cut from cursor to end of line |
 | `Tab` | Auto-complete file/command name |
 | `!!` | Repeat last command |
+| `!ls` | Rerun last command starting with `ls` |
 | `sudo !!` | Rerun last command as root |
+| `history` | Show command history |
+| `clear` | Clear terminal screen |
 
 ## Navigation
 
@@ -76,14 +81,25 @@ rm -r old_folder/        # delete directory recursively
 rmdir empty_folder       # remove only if empty
 ```
 
-## View file content
+## View and edit file content
 
 ```bash
 cat README.md            # print whole file (small files)
+cat -n file.txt          # print with line numbers
 less app.log             # scroll through file (q to quit)
 head -n 20 app.log       # first 20 lines
 tail -n 50 app.log       # last 50 lines
 tail -F app.log          # follow file as it grows (live logs)
+nano config.yaml         # lightweight terminal text editor
+vim config.yaml          # powerful terminal text editor (:wq to save/quit)
+```
+
+## I/O redirection
+
+```bash
+cat > file.txt           # write to file from stdin (Ctrl+D to save)
+echo "line" >> file.txt  # append text to file
+cat a.txt b.txt > out.txt  # combine files into one
 ```
 
 ## File info
@@ -107,6 +123,14 @@ export API_KEY="secret"  # set variable for session
 unset API_KEY            # remove variable
 ```
 
+## sudo (run as superuser)
+
+```bash
+sudo command             # run command with root privileges
+sudo -i                  # open root shell
+sudo !!                  # rerun last command as root
+```
+
 ## Permissions basics
 
 ```bash
@@ -125,6 +149,9 @@ Permission digits: `4` = read, `2` = write, `1` = execute (sum per role).
 tar -czf backup.tar.gz folder/   # create tar.gz archive
 tar -xzf backup.tar.gz           # extract tar.gz archive
 tar -tzf backup.tar.gz           # list contents without extracting
+gzip file.txt                    # compress file → file.txt.gz
+gunzip file.txt.gz               # decompress gzip file
 zip -r project.zip project/      # create zip archive
 unzip project.zip                # extract zip archive
+rsync -av src/ dest/             # sync directories (incremental)
 ```
