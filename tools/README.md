@@ -35,12 +35,3 @@ Hands-on command references, configuration patterns, and best practices for the 
 | [Search & Text Processing](./linux-terminal/02-search-text-processing.md) | `find`, `grep`, `rg`, `sort`, `uniq`, `wc`, basic pipelines |
 | [Processes & System Monitoring](./linux-terminal/03-processes-system-monitoring.md) | `ps`, `top`, `kill`, `systemctl`, `journalctl`, `free`, `df` |
 | [Network Basics](./linux-terminal/04-network-ssh-downloads.md) | `ip`, `ping`, `curl`, `wget`, `ssh`, `scp`, basic connectivity checks |
-
-<!-- child-readmes:start -->
-## Child READMEs
-
-- [Docker](./docker/README.md)
-- [Git](./git/README.md)
-- [Linux Terminal](./linux-terminal/README.md)
-
-<!-- child-readmes:end -->

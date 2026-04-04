@@ -121,19 +121,19 @@ Use this short checklist before merge.
 
 ### Dev checklist
 
-- [ ] Acceptance criteria covered by tests.
-- [ ] Unit + integration tests pass locally and in CI.
-- [ ] No hidden breaking API/schema changes.
-- [ ] Logging added for new failure paths.
-- [ ] Feature flags used for risky behavior changes.
+- Acceptance criteria covered by tests.
+- Unit + integration tests pass locally and in CI.
+- No hidden breaking API/schema changes.
+- Logging added for new failure paths.
+- Feature flags used for risky behavior changes.
 
 ### QA checklist
 
-- [ ] Risk level assigned (Low/Medium/High).
-- [ ] Regression impact identified.
-- [ ] Critical user journey validated.
-- [ ] Known limitations documented in PR.
-- [ ] Release note entry added if user-visible behavior changed.
+- Risk level assigned (Low/Medium/High).
+- Regression impact identified.
+- Critical user journey validated.
+- Known limitations documented in PR.
+- Release note entry added if user-visible behavior changed.
 
 ---
 

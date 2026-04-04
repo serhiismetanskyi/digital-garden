@@ -170,15 +170,15 @@ Typical Grafana or Kibana dashboards:
 
 ## Pre-Production Checklist
 
-- [ ] Loop termination set (max 10 iterations)
-- [ ] All tool calls have timeout and retry logic
-- [ ] Rate limits on LLM API and tools per task
-- [ ] Input sanitization and output validation in place
-- [ ] Structured logging with `trace_id` on all events
-- [ ] Alerting on error rate spikes
-- [ ] Adversarial test suite passes in CI
-- [ ] Human-in-the-loop for irreversible actions
-- [ ] Vector DB has TTL policy on ephemeral data
-- [ ] Cost monitoring + budget alerts active
-- [ ] PII redaction in logs and outputs
-- [ ] Regression suite passes after every deploy
+- Loop termination set (max 10 iterations)
+- All tool calls have timeout and retry logic
+- Rate limits on LLM API and tools per task
+- Input sanitization and output validation in place
+- Structured logging with `trace_id` on all events
+- Alerting on error rate spikes
+- Adversarial test suite passes in CI
+- Human-in-the-loop for irreversible actions
+- Vector DB has TTL policy on ephemeral data
+- Cost monitoring + budget alerts active
+- PII redaction in logs and outputs
+- Regression suite passes after every deploy

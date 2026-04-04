@@ -161,12 +161,12 @@ HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
 
 ## Checklist
 
-- [ ] Multi-stage build separates builder from runtime
-- [ ] Non-root user created and activated with `USER`
-- [ ] `.dockerignore` excludes irrelevant files
-- [ ] Dependencies copied and installed before source code
-- [ ] `HEALTHCHECK` defined
-- [ ] No secrets in build args or ENV
-- [ ] Exec form for `ENTRYPOINT`/`CMD`
-- [ ] Minimal base image for production stage
-- [ ] `--no-cache-dir` for pip or `uv sync --frozen` for uv
+- Multi-stage build separates builder from runtime
+- Non-root user created and activated with `USER`
+- `.dockerignore` excludes irrelevant files
+- Dependencies copied and installed before source code
+- `HEALTHCHECK` defined
+- No secrets in build args or ENV
+- Exec form for `ENTRYPOINT`/`CMD`
+- Minimal base image for production stage
+- `--no-cache-dir` for pip or `uv sync --frozen` for uv

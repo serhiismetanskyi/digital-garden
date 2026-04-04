@@ -130,9 +130,9 @@ Context / motivation / link to issue.
 3. Expected result
 
 ## Checklist
-- [ ] Tests added / updated
-- [ ] Docs updated (if applicable)
-- [ ] No breaking changes (or documented)
+- Tests added / updated
+- Docs updated (if applicable)
+- No breaking changes (or documented)
 ```
 
 ## Code Review Guidelines

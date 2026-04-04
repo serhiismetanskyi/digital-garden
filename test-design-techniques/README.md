@@ -1,8 +1,5 @@
 # Test Design Techniques
 
-Practical reference for test design techniques used in everyday QA work.
-Based on: [Test Design: Stop Clicking, Start Thinking](https://medium.com/@serhiismetanskyi/test-design-stop-clicking-start-thinking-7f73dd0e7895)
-
 ---
 
 ## Why Test Design Matters

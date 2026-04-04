@@ -198,13 +198,13 @@ def can_execute_tool(role: str, tool_name: str) -> bool:
 
 ## Testing Checklist (Production Readiness)
 
-- [ ] **Tool unit tests**: argument validation and error paths.
-- [ ] **Chain integration tests**: prompt + model + parser contracts.
-- [ ] **RAG tests**: retrieval relevance and citation presence.
-- [ ] **Agent behavior tests**: loop termination and tool-choice correctness.
-- [ ] **Adversarial tests**: prompt injection and malformed tool args.
-- [ ] **Regression suite**: fixed dataset run before each release.
-- [ ] **Latency/cost guardrails**: max step count, timeout, token thresholds.
+- **Tool unit tests**: argument validation and error paths.
+- **Chain integration tests**: prompt + model + parser contracts.
+- **RAG tests**: retrieval relevance and citation presence.
+- **Agent behavior tests**: loop termination and tool-choice correctness.
+- **Adversarial tests**: prompt injection and malformed tool args.
+- **Regression suite**: fixed dataset run before each release.
+- **Latency/cost guardrails**: max step count, timeout, token thresholds.
 
 ## Alerting Baseline
 
