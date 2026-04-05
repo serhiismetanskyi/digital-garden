@@ -1,7 +1,5 @@
 # Digital Garden: Knowledge Base
 
-![My Knowledge Base](./digital-garden.png)
-
 ## Architecture & Design
 
 | Section | Topics |

@@ -12,8 +12,8 @@ uv add --dev pytest pytest-cov pytest-xdist pytest-asyncio pytest-mock pytest-ra
 
 | Folder | Focus |
 |--------|-------|
-| [01 Core Guides](./01-core-guides/) | Fundamentals (fixtures, assertions, parametrize, markers) and advanced patterns (mocking, monkeypatch, async, coverage, plugins) |
-| [02 Practical Playbooks](./02-practical-playbooks/) | Real-world recipes, test-data factories, flaky-debug workflow, config template |
+| [01 Core Guides](./01-core-guides/01-fundamentals.md) | Fundamentals (fixtures, assertions, parametrize, markers) and advanced patterns (mocking, monkeypatch, async, coverage, plugins) |
+| [02 Practical Playbooks](./02-practical-playbooks/01-real-world-recipes.md) | Real-world recipes, test-data factories, flaky-debug workflow, config template |
 
 ### Core Guides
 
